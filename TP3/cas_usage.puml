@@ -1,0 +1,27 @@
+@startuml
+skinparam dpi 150
+skinparam shadowing false
+skinparam packageStyle rectangle
+left to right direction
+actor "Étudiant" as E
+actor "Secrétariat" as S
+actor "Responsable\npédagogique" as R
+actor "Encadreur" as N
+actor "Administrateur" as A
+rectangle "Application de gestion des stages" {
+ usecase "Soumettre une\ndemande de stage" as UC1
+ usecase "Consulter l'état de\nses demandes" as UC2
+ usecase "Valider ou refuser\nune demande" as UC3
+ usecase "Affecter un\nencadreur" as UC4
+ usecase "Rechercher\nun dossier" as UC5
+ usecase "Consulter ses\nétudiants affectés" as UC6
+ usecase "Gérer les comptes\net les rôles" as UC7
+}
+E --> UC1
+E --> UC2
+R --> UC3
+S --> UC4
+S --> UC5
+N --> UC6
+A --> UC7
+@enduml
