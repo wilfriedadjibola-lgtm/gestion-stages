@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TP4 – Squelette technique et contrat d'API</title>
+<style>body{font-family:Arial,sans-serif;max-width:950px;margin:35px auto;padding:0 20px;line-height:1.55;color:#111}h1,h2{color:#111}table{border-collapse:collapse;width:100%;margin:16px 0}th,td{border:1px solid #555;padding:9px;text-align:left;vertical-align:top}th{background:#eee}code{background:#eee;padding:2px 4px}</style></head><body>
+<h1>TP4 – Squelette technique et contrat d'API</h1><p><strong>Projet :</strong> Gestion des stages – Projet informatique 2 · L3 SIL</p>
+<h2>Objectif</h2><p>Mettre en place une première structure PHP, configurer l'accès MySQL avec PDO et définir les premiers points d'entrée de l'API.</p>
+<h2>1. Arborescence</h2><p>Le dossier <code>squelette</code> contient <code>public/</code>, <code>src/Controllers/</code>, <code>src/Services/</code>, <code>src/Repositories/</code>, <code>config/</code> et <code>tests/</code>.</p>
+<h2>2. Configuration et dépôt Git</h2><p><code>config/.env.example</code> présente les variables de connexion. Il faut le copier en <code>.env</code> sur chaque poste. Le fichier <code>.gitignore</code> exclut <code>.env</code> afin de ne pas publier les mots de passe.</p>
+<h2>3. Connexion PDO</h2><p>La classe <code>Database</code> crée une connexion PDO MySQL avec <code>PDO::ERRMODE_EXCEPTION</code>, le jeu de caractères <code>utf8mb4</code> et les requêtes préparées natives. Le test <code>tests/test_connexion.php</code> exécute <code>SELECT 1</code>.</p>
+<h2>4. Contrat des trois routes API</h2><table><tr><th>Méthode et chemin</th><th>Corps / paramètres</th><th>Codes de réponse</th></tr>
+<tr><td>GET /api/sante</td><td>Aucun</td><td>200 : base joignable ; 503 : base indisponible</td></tr>
+<tr><td>GET /api/stages</td><td>Aucun</td><td>200 : liste vide au départ ; 500 : erreur serveur</td></tr>
+<tr><td>POST /api/demandes</td><td>JSON : etudiant_id, stage_id</td><td>201 : créée (à implémenter) ; 400 : données invalides ; 500 : erreur serveur</td></tr></table>
+<h2>5. Fiche ADR-001</h2><p><strong>Titre :</strong> Choix de PDO pour l'accès à MySQL.<br><strong>Contexte :</strong> l'application Gestion des stages doit communiquer avec MySQL/MariaDB.<br><strong>Décision :</strong> utiliser PDO avec le pilote pdo_mysql.<br><strong>Conséquences :</strong> gestion uniforme des erreurs par exceptions et possibilité de requêtes préparées.<br><strong>Statut :</strong> accepté.</p>
+<p><em>Note :</em> GET /api/stages et POST /api/demandes constituent le contrat initial. Leur traitement métier complet sera réalisé dans une prochaine étape. GET /api/sante est implémentée dans ce TP.</p></body></html>
