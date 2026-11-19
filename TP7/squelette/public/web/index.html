@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Demandes</title>
+</head>
+<body>
+  <h1>Déposer une demande</h1>
+
+  <form id="form-depot" novalidate>
+    <label for="titre">Titre</label>
+    <input type="text" id="titre" name="titre" required>
+
+    <label for="description">Description</label>
+    <textarea id="description" name="description" required></textarea>
+
+    <label for="token">Jeton (Bearer)</label>
+    <input type="text" id="token" name="token">
+
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <p id="erreur" role="alert" style="color:#b00020"></p>
+  <p id="succes" role="status" style="color:#1b7f3b"></p>
+
+  <h2>Liste des demandes</h2>
+  <button type="button" id="actualiser">Actualiser la liste</button>
+  <ul id="liste"></ul>
+
+  <script src="app.js"></script>
+</body>
+</html>
