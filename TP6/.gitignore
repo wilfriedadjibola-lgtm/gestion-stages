@@ -1,0 +1,4 @@
+config/database.php
+public/generer_hash.php
+.env
+/vendor/
