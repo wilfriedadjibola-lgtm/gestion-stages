@@ -1,0 +1,235 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des demandes de stage</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- CONNEXION -->
+<section id="loginView" class="login-screen">
+    <div class="login-decoration">
+        <div class="brand">STAGE<span>MANAGER</span></div>
+        <div>
+            <h1>La gestion des stages, simplement.</h1>
+            <p>Une plateforme pour suivre et traiter les demandes de stage.</p>
+        </div>
+        <small>Projet universitaire — TP6</small>
+    </div>
+
+    <div class="login-area">
+        <form id="loginForm" class="login-card">
+            <div class="brand mobile-brand">STAGE<span>MANAGER</span></div>
+            <h2>Bienvenue</h2>
+            <p class="muted">Connectez-vous à votre espace de gestion.</p>
+
+            <label>Adresse e-mail</label>
+            <input type="email" id="email" required
+                   placeholder="exemple@email.com">
+
+            <label>Mot de passe</label>
+            <input type="password" id="password" required
+                   placeholder="Votre mot de passe">
+
+            <button id="loginBtn" class="btn primary full">
+                Se connecter
+            </button>
+
+            <p id="loginError" class="error hidden"></p>
+        </form>
+    </div>
+</section>
+
+<!-- APPLICATION -->
+<div id="appView" class="app hidden">
+
+    <aside class="sidebar">
+        <div class="brand">STAGE<span>MANAGER</span></div>
+
+        <p class="menu-title">MENU PRINCIPAL</p>
+
+        <button class="nav-btn active" data-page="dashboard">
+            ▦ Tableau de bord
+        </button>
+
+        <button class="nav-btn" data-page="requests">
+            ▤ Mes demandes
+        </button>
+
+        <button id="newNav" class="nav-btn" data-page="new">
+            ＋ Nouvelle demande
+        </button>
+
+        <button class="nav-btn" data-page="history">
+            ◷ Historique
+        </button>
+
+        <div class="sidebar-bottom">
+            <button id="logoutBtn" class="nav-btn">
+                ↪ Déconnexion
+            </button>
+        </div>
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+            <div>
+                <small>Espace de gestion</small>
+                <strong id="pageName">Tableau de bord</strong>
+            </div>
+
+            <div class="profile">
+                <div id="avatar" class="avatar">U</div>
+                <span id="userName">Utilisateur</span>
+            </div>
+        </header>
+
+        <!-- TABLEAU DE BORD -->
+        <section id="dashboardPage">
+            <div class="page-heading">
+                <div>
+                    <h1 id="welcomeTitle">Bonjour</h1>
+                    <p id="welcomeSub">Bienvenue dans votre espace.</p>
+                </div>
+
+                <button id="quickNew" class="btn primary">
+                    + Nouvelle demande
+                </button>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <span>Total des demandes</span>
+                    <strong id="statTotal">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Brouillons</span>
+                    <strong id="statDraft">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>En attente</span>
+                    <strong id="statPending">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Validées</span>
+                    <strong id="statApproved">0</strong>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <h2 id="recentTitle">Demandes récentes</h2>
+                    <button class="btn light" data-goto="requests">
+                        Voir tout
+                    </button>
+                </div>
+                <div id="recentTable"></div>
+            </div>
+        </section>
+
+        <!-- LISTE DES DEMANDES -->
+        <section id="requestsPage" class="hidden">
+            <div class="page-heading">
+                <div>
+                    <h1 id="listTitle">Mes demandes</h1>
+                    <p>Consultez et gérez les demandes.</p>
+                </div>
+
+                <button id="listNew" class="btn primary">
+                    + Nouvelle demande
+                </button>
+            </div>
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <h2>Liste des demandes</h2>
+                    <button id="refreshBtn" class="btn light">
+                        Actualiser
+                    </button>
+                </div>
+
+                <div id="allTable"></div>
+            </div>
+        </section>
+
+        <!-- CREATION -->
+        <section id="newPage" class="hidden">
+            <div class="page-heading">
+                <div>
+                    <h1>Nouvelle demande</h1>
+                    <p>Remplissez les informations du stage.</p>
+                </div>
+            </div>
+
+            <div class="panel form-panel">
+                <form id="createForm">
+                    <label>Nom de l'entreprise</label>
+                    <input id="company" type="text"
+                           maxlength="180" required>
+
+                    <label>Date de début</label>
+                    <input id="startDate" type="date" required>
+
+                    <button class="btn primary">
+                        Enregistrer la demande
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- HISTORIQUE -->
+        <section id="historyPage" class="hidden">
+            <div class="page-heading">
+                <div>
+                    <h1>Historique des demandes</h1>
+                    <p>Sélectionnez une demande pour consulter ses opérations.</p>
+                </div>
+            </div>
+
+            <div class="panel">
+                <label>Demande</label>
+                <select id="historyDemand"></select>
+                <div id="historyContent" class="history-content">
+                    Sélectionnez une demande.
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<!-- MODALE DE REFUS -->
+<div id="rejectModal" class="modal hidden">
+    <form id="rejectForm" class="modal-card">
+        <h2>Refuser la demande</h2>
+        <p>Le motif du refus est obligatoire.</p>
+
+        <label>Motif</label>
+        <textarea id="rejectReason" required
+                  placeholder="Expliquez le motif du refus"></textarea>
+
+        <div class="modal-actions">
+            <button id="cancelReject" type="button" class="btn light">
+                Annuler
+            </button>
+
+            <button class="btn danger">
+                Confirmer le refus
+            </button>
+        </div>
+    </form>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
