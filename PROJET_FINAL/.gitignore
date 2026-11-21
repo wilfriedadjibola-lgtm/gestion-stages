@@ -1,0 +1,6 @@
+.env
+*.log
+.Rhistory
+.DS_Store
+.vscode/
+Preuves/*.sql

@@ -1,0 +1,19 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #f4f6f9; color: #1f2937; }
+header { background: #14532d; color: #fff; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+header h1 { margin: 0; font-size: 1.3rem; }
+main { max-width: 1050px; margin: 1.5rem auto; padding: 0 1rem; }
+.carte { background: #fff; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; }
+form { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: .75rem; }
+label { display: flex; flex-direction: column; font-size: .85rem; gap: .25rem; }
+input, select { padding: .5rem; border: 1px solid #cbd5e1; border-radius: 6px; font: inherit; }
+button { padding: .45rem .8rem; border: 0; border-radius: 6px; cursor: pointer; background: #14532d; color: #fff; }
+button.secondaire { background: #e5e7eb; color: #111; }
+table { width: 100%; border-collapse: collapse; background: #fff; }
+.tableau { overflow-x: auto; }
+th, td { padding: .6rem; text-align: left; border-bottom: 1px solid #e5e7eb; font-size: .88rem; }
+th { background: #ecfdf5; }
+.badge { padding: .15rem .5rem; border-radius: 99px; font-size: .75rem; background: #e5e7eb; }
+.badge.VALIDEE { background: #bbf7d0; } .badge.REFUSEE { background: #fecaca; } .badge.SOUMISE { background: #fde68a; }
+.stats { display: flex; gap: .75rem; flex-wrap: wrap; } .stat { background: #ecfdf5; padding: .6rem 1rem; border-radius: 8px; }
+#msg { color: #b91c1c; min-height: 1.2rem; }
