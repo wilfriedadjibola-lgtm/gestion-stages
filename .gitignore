@@ -19,3 +19,5 @@ TP4/squelette_sauvegarde_*/
 TP4/squelette/**/*.bak_T7
 TP4/squelette/public/index_avant_auth.php
 TP4/squelette/src/Controllers/DemandeController_avant_T3.php
+# Sauvegardes SQL locales du TP9
+TP9/preuves/*.sql
