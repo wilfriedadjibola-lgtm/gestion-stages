@@ -1,5 +1,30 @@
 # Gestion des stages
 
+## Accès au projet
+
+| | |
+|---|---|
+| **Dépôt GitHub** | https://github.com/wilfriedadjibola-lgtm/gestion-stages |
+| **Application (en local)** | http://localhost:8000 |
+| **Vérification de santé** | http://localhost:8000/api/sante |
+
+L'application n'est pas hébergée en ligne : elle se lance sur l'ordinateur avec `php -S localhost:8000 -t Public Public/index.php` (installation détaillée dans la section « Installation » plus bas). Les preuves de fonctionnement sont dans le dossier `Preuves/`.
+
+## Identifiants de démonstration
+
+Comptes fictifs, créés par `php src/seed.php`. Mot de passe commun : `Demo2026!`
+
+| Rôle | Email | Mot de passe | Ce qu'il peut faire |
+|---|---|---|---|
+| Étudiant | `etudiant@demo.test` | `Demo2026!` | Créer une demande, la soumettre, la reprendre en brouillon si elle est refusée |
+| Administrateur | `admin@demo.test` | `Demo2026!` | Valider ou refuser (motif obligatoire), affecter un encadreur, voir le tableau de bord |
+| Encadreur | `encadreur@demo.test` | `Demo2026!` | Consulter les dossiers qui lui sont affectés |
+
+## Pour le correcteur
+
+- **Preuves de fonctionnement** : dossier `Preuves/` (captures numérotées, liste de contrôle dans `Preuves/README.md`).
+- **Tests des règles métier** : `php src/tests/test_statuts.php`, cas détaillés dans `TABLEAU_CAS.md`.
+
 Projet informatique 2 — L3 SIL. Application de dépôt, de suivi et de traitement des demandes de stage des étudiants.
 
 Dépôt : https://github.com/wilfriedadjibola-lgtm/gestion-stages
