@@ -1,0 +1,12 @@
+#,Test,Exigence,Données,Attendu,Observé,Preuve
+T1,Connexion valide,Authentification,etudA / mot de passe correct,Redirection vers le tableau de bord,,
+T2,Connexion invalide,Authentification,etudA / mauvais mot de passe,Message d'erreur générique et pas de session,,
+T3,Création demande valide,Saisie,Titre + date future valide,Demande créée en statut en_attente,,
+T4,Demande inexistante,Gestion d'erreur,demande.php?id=99999,404 sans erreur PHP affichée,,
+T5,Refus sans motif,Règle métier,Refus avec motif vide,Refus bloqué + message motif obligatoire,,
+T6,Validation répétée,Idempotence,Valider 2 fois la même demande,2e validation refusée,,
+T7,Date invalide,Validation,31/02/2026 ; abc ; date passée,Rejet avec message et rien en base,,
+T8,Accès dossier d'autrui,Autorisation,Session B + dossier de A,403,,
+T9,Injection SQL,Sécurité,identifiant « 1 OR 1=1 »,400/403/404 jamais la liste complète,,
+T10,Mot de passe haché,Sécurité,SELECT sur la table users,Hash $2y$ de 60 caractères,,
+T11,CSRF,Sécurité,POST sans jeton ou jeton falsifié,403 et action non exécutée,,

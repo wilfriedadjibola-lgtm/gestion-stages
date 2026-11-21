@@ -1,0 +1,17 @@
+﻿ID,Test,Exigence,Données,Attendu,Observé,Preuve
+T1,Connexion valide,Authentification,Compte étudiant,Connexion au tableau de bord,Non implémenté dans TP4,Aucun
+T2,Connexion invalide,Authentification,Mot de passe incorrect,Message d'erreur,Non implémenté dans TP4,Aucun
+T3,Création demande valide,Saisie,etudiant_id=1 et stage_id=2,Demande créée HTTP 201,HTTP 501 : création non implémentée,preuve-12.png
+T4,Demande inexistante,Gestion erreur,Identifiant 99999,HTTP 404,Fonction non implémentée / non testable,Aucun
+T5,Refus sans motif,Règle métier,Motif vide,Refus bloqué,Non implémenté dans TP4,Aucun
+T6,Validation répétée,Idempotence,Même demande validée deux fois,Deuxième validation refusée,Non implémenté dans TP4,Aucun
+T7,Date invalide,Validation,Date incorrecte,Rejet de la date,Non implémenté dans TP4,Aucun
+T8,Accès dossier autrui,Autorisation,Dossier d'un autre étudiant,HTTP 403,Contrôle non implémenté,Aucun
+T9,Injection SQL,Sécurité,Identifiant malveillant,Requête sécurisée,Non testable sur les routes actuelles,Aucun
+T10,Mot de passe haché,Sécurité,Table des utilisateurs,Hash sécurisé,Authentification non implémentée,Aucun
+T11,CSRF,Sécurité,POST sans jeton,Requête rejetée,Protection non visible dans le code examiné,Aucun
+T12,Connexion PDO,Base de données,Connexion MySQL,Connexion réussie,[OK] Connexion PDO réussie,preuve-08.png
+T13,Santé API,Disponibilité,GET /api/sante,HTTP 200,HTTP 200 : base joignable,preuve-09.png
+T14,Liste des stages,Consultation,GET /api/stages,HTTP 200 avec liste,HTTP 200 : liste vide [],preuve-10.png
+T15,Données invalides,Validation JSON,etudiant_id=abc et stage_id=1,HTTP 400,HTTP 400 : données invalides,preuve-11.png
+T16,Protection du fichier env,Sécurité Git,Fichier .env,Non suivi par Git,git status vide et git ls-files .env vide,preuve-13.png
