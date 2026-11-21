@@ -24,7 +24,8 @@ return [
         'host' => $_ENV['DB_HOST'] ?? '127.0.0.1',
         'port' => $_ENV['DB_PORT'] ?? '3306',
         'name' => $_ENV['DB_NAME'] ?? 'projet_sil',
-        'user' => $_ENV['DB_USER'] ?? 'root',
+        // Ne jamais retomber silencieusement sur le compte MySQL root.
+        'user' => $_ENV['DB_USER'] ?? '',
         'pass' => $_ENV['DB_PASS'] ?? '',
     ],
 ];

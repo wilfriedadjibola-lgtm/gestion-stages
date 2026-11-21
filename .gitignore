@@ -1,0 +1,21 @@
+# Fichiers de configuration contenant des secrets
+**/.env
+**/.env.*
+!**/.env.example
+
+# Cookies et sessions
+**/cookies*.txt
+
+# Fichiers temporaires des tests
+TP4/squelette/changer_mdp_t8.php
+TP4/squelette/creer_compte_t8_b.php
+TP4/squelette/demande_t03.json
+TP4/squelette/login_t1.json
+TP4/squelette/test_json.txt
+TP4/squelette/test_json_invalide.txt
+
+# Sauvegardes et anciennes versions
+TP4/squelette_sauvegarde_*/
+TP4/squelette/**/*.bak_T7
+TP4/squelette/public/index_avant_auth.php
+TP4/squelette/src/Controllers/DemandeController_avant_T3.php
